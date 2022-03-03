@@ -1,0 +1,19 @@
+# Author: Logan MacDonald
+# Date: 01/31/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program converts a user input of seconds into hours, minutes and seconds.
+seconds_in_day: int = 86400
+seconds_in_hour = 3600
+seconds_in_minute = 60
+
+seconds = int(input("Enter a number of seconds: "))
+days = seconds // seconds_in_day
+seconds = seconds - (days * seconds_in_day)
+hours = seconds // seconds_in_hour
+seconds = seconds - (hours * seconds_in_hour)
+minutes = seconds // seconds_in_minute
+seconds = seconds - (minutes * seconds_in_minute)
+
+
+print(seconds, 'seconds =', hours, 'hours,', minutes, 'minutes and', seconds, 'seconds')
