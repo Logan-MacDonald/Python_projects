@@ -1,0 +1,38 @@
+# Author: Logan MacDonald
+# Date: 03/29/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program provides the user with a count of the upper case, lower case, numbers
+# and whitespace in a document
+file = ("text.txt")
+print("Please enter the name of the file: ")
+filename = input()
+if filename in file:
+    print()
+else:
+    print("There was an error while opening the file.")
+    quit()
+f = open("text.txt", 'r')
+Digits, white, lower_case, upper_case = 0, 0, 0, 0
+lines = f.readlines()
+for data in lines:
+    for character in data:
+        if character.isupper():
+            upper_case += 1
+        elif character.islower():
+            lower_case += 1
+        elif character.isspace():
+            white += 1
+        elif character.isdigit():
+            Digits += 1
+#data = f.read()
+#value = [i for i in data]
+#upper_case = len(list(filter(lambda x: x.isupper(), value)))
+#lower_case = len(list(filter(lambda x: x.islower(), value)))
+#digits = len(list(filter(lambda x: x.isdigit(), value)))
+#white = len(list(filter(lambda x: x.isspace(), value)))
+
+print(f"Uppercase letters: {upper_case}")
+print(f"Lowercase letters: {lower_case}")
+print(f"Digits: {Digits}")
+print(f"Spaces: {white}")
