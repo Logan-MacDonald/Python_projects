@@ -1,0 +1,19 @@
+# Author: Logan MacDonald
+# Date: 03/20/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program allows a user to enter a DNA sequence and select the desired pattern length
+# to pull out the requested information.
+dna = input("Enter DNA sequence: ")
+pattern_length = int(input("Enter pattern length: "))
+sequenced_dna = [dna[x:x+pattern_length] for x in range(0, len(dna)) if len(dna[x:x+pattern_length]) == pattern_length]
+print()
+
+sequence_counts = {}
+for seq in set(sequenced_dna):
+    sequence_counts[seq] = sequenced_dna.count(seq)
+
+print(f"Most frequent pattern of length {pattern_length}:")
+for key, value in sequence_counts.items():
+    if value == max(sequence_counts.values()):
+        print(key)
