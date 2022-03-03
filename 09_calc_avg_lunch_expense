@@ -1,0 +1,8 @@
+# Author: Logan MacDonald
+# Date: 02/08/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description: calculates the average cost the user spends for lunch each week
+x, y, z, a, b = [float(x) for x in input("Enter lunch cost:  ").split()]
+week_cost_total = (x + y + z + a + b)
+avg = (week_cost_total / 5.0)
+print("On average, you spend %5.2f daily for lunch" %(avg))
