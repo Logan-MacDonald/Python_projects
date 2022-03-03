@@ -1,0 +1,11 @@
+# Author: Logan MacDonald
+# Date: 02/08/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description: user inputs todays temperature and tomorrows forecasted temperature, program calculates
+# the difference in temperatures and the percentage of change
+a = input("Enter today's temperature in degrees: ")
+b = input("Enter tomorrow's temperature forecast in degrees: ")
+temp_diff = (int(b) - int(a))
+change_percent = round((((int(b) - int(a)) * 100) / int(a)))
+print("Tomorrow's temperature will differ by", temp_diff, "degrees")
+print("The temperature change is:", change_percent,"%")
