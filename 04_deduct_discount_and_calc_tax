@@ -1,0 +1,17 @@
+# Author: Logan MacDonald
+# Date: 01/31/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program takes the user provided price of two products, deducts a 25% storewide discount, and calculates
+# the 8.25% tax to find the total price.
+prod1 = float(input('Price of first item: '))
+prod2 = float(input('Price of second item: '))
+price1 = (prod1 * .25)
+price2 = (prod2 * .25)
+new_price1 = (prod1 - price1)
+new_price2 = (prod2 - price2)
+tax_price1 = (new_price1 * .0825)
+tax_price2 = (new_price2 * .0825)
+final_price1 = (new_price1 + tax_price1)
+final_price2 = (new_price2 + tax_price2)
+print('You pay $', final_price1 + final_price2)
