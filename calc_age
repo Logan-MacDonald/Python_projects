@@ -1,0 +1,11 @@
+Author: Logan MacDonald
+# Date: 01/31/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program asks for the coordinates of two points and computes the
+# distance between the two points.
+name = input('Enter your name: ')
+age = int(input('Enter your age: '))
+year_old = str(age + 1)
+
+print('Howdy,', name, '! Next year, you will be', year_old, 'years old')
