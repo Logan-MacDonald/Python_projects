@@ -1,0 +1,36 @@
+# Author: Logan MacDonald
+# Date: 02/22/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description: Program asks for the input of 5 grades. Calculates the average score, compares the scores against
+# and determines what score would be needed in subject 5 to raise the final average to a 95.
+print("*******************Section A******************************")
+subject1 = float(input("Enter the subject1 Score :"))
+subject2 = float(input("Enter the subject2 Score :"))
+subject3 = float(input("Enter the subject3 Score :"))
+subject4 = float(input("Enter the subject4 Score :"))
+subject5 = float(input("Enter the subject5 Score :"))
+total_score = (subject1 + subject2 + subject3 + subject4 + subject5)
+avg_score = (total_score / 5)
+print("The average score is", avg_score)
+print("*******************Section B******************************")
+if avg_score >= subject4:
+    print("Is the average score greater than or equal to subject4 score? True")
+else:
+    print("Is the average score greater than or equal to subject4 score? False")
+print("*******************Section C******************************")
+if subject1 == subject5:
+    print("Is subject1 score equal to subject5 score? True")
+else:
+    print("Is subject1 score equal to subject5 score? False")
+print("*******************Section D******************************")
+if subject2 <= subject3:
+    print("Is subject2 score less than or equal to subject 3 score? True")
+else:
+    print("Is subject2 score less than or equal to subject 3 score? False")
+print("*******************Section E******************************")
+subject5 = (5 * 95 - subject1 - subject2 - subject3 - subject4)
+print("subject5 score should be", subject5, "to get and average score of 95")
+if subject5 <= 100:
+    print("Is it possible to score", subject5, "?", "", "True")
+else:
+    print("Is it possible to score", subject5, "?", "", "False")
