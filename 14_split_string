@@ -1,0 +1,29 @@
+# Author: Logan MacDonald
+# Date: 02/14/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description: This program takes 2 inputs from a user, verifies if they are the correct length and extracts
+# certain elements from the two user provided inputs.
+print("*******************Section A******************************")
+string_one = str(input("Enter the first input: "))
+string_two = str(input("Enter the second input: "))
+if len(string_one) == 5:
+    print("Is the length of string_one equal to 5? : True")
+else:
+    print("Is the length of string_one equal to 5? : False")
+if len(string_two) == 5:
+    print("Is the length of string_two equal to 5? : True")
+else:
+    print("Is the length of string_two equal to 5? : False")
+print("*******************Section B******************************")
+import re
+numbers_one = ''.join(re.split(r'[^0-9]', string_one))
+letters_one = ''.join(re.split(r'[^A-za-z]', string_one))
+print(letters_one)
+print(numbers_one)
+print("*******************Section C******************************")
+numbers_two = ''.join(re.split(r'[^0-9]', string_two))
+letters_two = ''.join(re.split(r'[^A-za-z]', string_two))
+print(letters_two)
+print(numbers_two)
+print("*******************Section D******************************")
+print("*******************Section E******************************")
