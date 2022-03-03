@@ -1,0 +1,21 @@
+# Author: Logan MacDonald
+# Date: 02/28/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program asks for user input of two numbers and calculates the Fibonacci number sequence between the two.
+print("**************************************************")
+start = int(input("Enter starting number: "))
+end = int(input("Enter ending number: "))
+fibonacci = [0,1]
+x, y, n = 0, 1, 0
+while True:
+    n = fibonacci[x] + fibonacci[y]
+    if  n > end:
+        break
+    fibonacci.append(n)
+    x += 1
+    y += 1
+new_start = (fibonacci.index(start))
+answer = fibonacci[new_start:end]
+print(f"The {len(answer)} Fibonacci numbers between {start} and {end} are: \n", *answer)
+print("**************************************************")
