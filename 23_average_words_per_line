@@ -1,0 +1,23 @@
+# Author: Logan MacDonald
+# Date: 03/29/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program provides the user the average number of words per line in a file.
+file = ("text.txt")
+print("Please enter the name of the file: ")
+filename = input()
+if filename in file:
+    print()
+else:
+    print("There was an error while opening the file.")
+    quit()
+f = open("text.txt",'r')
+words = 0
+lines = 0
+for line in f:
+    lines = lines+1
+    wordList = line.split(" ")
+    for word in wordList:
+        words = words+1
+avg = round((words / lines), 2)
+print(f'Average number of words per line {avg}')
