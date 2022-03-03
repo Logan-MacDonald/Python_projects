@@ -1,0 +1,22 @@
+# Author: Logan MacDonald
+# Date: 04/4/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program is a database for employee management allowing a user to lookup, add, change
+# and delete employees from a database.
+import Employee
+
+employee_dict = {}
+
+while True:
+    print("Menu")
+    print("----------------------------------------")
+    print("1. Look up an employee")
+    print("2. Add a new employee")
+    print("3. Change an existing employee")
+    print("4. Delete an employee")
+    print("5. Quit the program")
+    choice = input("Enter your choice: ")
+    if choice == '1':
+        id_number = input("Enter employee name: ")
+        employee_dict[id_number] = name
