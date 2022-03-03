@@ -1,0 +1,58 @@
+# Author: Logan MacDonald
+# Date: 03/20/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program is for a grocery store to keep track of fruits
+# and prices.
+current_stock = {}
+while True:
+    print("\n***************Main Menu***************")
+    print("1. Add fruits")
+    print("2. Edit fruit")
+    print("3. Delete fruit")
+    print("4. Search fruits")
+    print("5. Quit")
+    print("*******************************************\n")
+    choice = input("Choose from menu: ")
+    if choice == '1':
+        fruit_prices = input("Enter fruit follow by prices: ")
+        fruit_prices = fruit_prices.split(',')  # splitting input taking ',' as delimiter
+        fruit = fruit_prices[0]  # first element will be fruit name
+        prices = fruit_prices[1].split()  # splitting second element taking space as delimter
+        prices = [float(price) for price in prices]  # converting prices to float type
+        current_stock[fruit] = prices  # storing fruit and price to stock
+        print(f"\nCurrent Stock: {current_stock}")  # printing current stock
+    elif choice == '2':
+        name = input("Enter the fruit name: ")
+        if name in current_stock:
+            prices = input("Enter the fruit prices: ").split()
+            prices = [float(price) for price in prices]
+            current_stock[name] = prices
+        else:
+            print(f"{name} is not on the list.")
+        print(f"\nCurrent Stock: {current_stock}")
+    elif choice == '3':
+        item = input("If you want to remove all items enter 'all' otherwise enter the fruit name: ")
+        if item in current_stock:
+            current_stock.pop(item)
+        elif item == "all":
+            current_stock.clear()
+        else:
+            print(f"{item} is not on the list.")
+        print(f"\nCurrent Stock: {current_stock}")
+    elif choice == '4':
+        name = input("Enter the fruit name: ")
+        if name in current_stock:
+            print(f"{name} has {len(current_stock[name])} different prices of: ", end='')
+            for price in current_stock[name]:
+                print(f"{price} ", end='')
+            print("")
+        else:
+            print(f"{name} is not on the list.")
+        print(f"\nCurrent Stock: {current_stock}")
+    elif choice == '5':
+        print(f"\nCurrent Stock: {current_stock}")
+        break
+    else:
+        print("Invalid Choice: Choose correct option.")
+        print(f"\nCurrent Stock: {current_stock}")
