@@ -1,0 +1,19 @@
+# Author: Logan MacDonald
+# Date: 04/21/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program uses the Ackermans function to test how well a system is optimized
+def ackerman(m, n):
+    if m == 0:
+        return n + 1
+    elif n == 0:
+        return ackerman(m - 1, 1)
+    else:
+        return ackerman(m - 1, ackerman(m, n-1))
+
+m = int(input("Enter and integer value for m: "))
+n = int(input("Enter an integer value for n: "))
+
+ans = ackerman(m, n)
+
+print("Ackerman({},{}) = {}".format(m, n, ans))
