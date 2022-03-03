@@ -1,0 +1,9 @@
+# Author: Logan MacDonald
+# Date: 02/08/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description: calculates the sum of all edges of a box and the volume
+x, y, z = [float(x) for x in input("Enter edge lengths of a box (in ft):  ").split()]
+length = str(x * 4 + y * 4 + z * 4)
+volume = str(x * y * z)
+print("Sum of all edges of a box is", length, "ft.")
+print("Volume the box is", volume, "cubic ft.")
