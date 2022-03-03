@@ -1,0 +1,28 @@
+# Author: Logan MacDonald
+# Date: 03/20/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program uses the power formula recursively to solve x^n.
+def main():
+    a = float(input("Enter a number: "))
+    n = int(input("Enter an integer number between -100 and 100: "))
+    result = power(a, n)
+    print(result)
+
+
+def power(a, n):
+    if n < -100:
+        print("Invalid input, try again")
+        return main()
+    if n > 100:
+        print("Invalid input, try again")
+        return main()
+    if n == 0:
+        return 1
+    elif n < 0:
+        return 1 / power(a, n)
+    else:
+        return a * power(a, n - 1)
+
+
+main()
