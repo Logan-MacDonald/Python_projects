@@ -1,0 +1,32 @@
+# Author: Logan MacDonald
+# Date: 02/14/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description: This program accepts a user input and creates a palindrome from it. During the process the string
+# is converted to upper case and a comparison is made to ensure it is in fact a palindrome.
+print("*******************Section A******************************")
+string = input("Enter the input string: ")
+print("The length of the input string is", len(string))
+print("*******************Section B******************************")
+print("The input string with characters converted to upper case is", string.upper())
+print("*******************Section C******************************")
+reverse_string = string[::-1]
+palindrome = string + reverse_string
+
+
+def check_palindrome(palindrome):
+    for i in range(0, int(len(palindrome) / 2)):
+        if palindrome[i] != palindrome[len(palindrome) - i-i]:
+            return False
+        return True
+
+
+print("The Palindrome is", palindrome.upper())
+if palindrome == palindrome[::-1]:
+    print("Comparison Result is true")
+else:
+    print("Comparison Result is False")
+print("*******************Section D******************************")
+if  palindrome >= string *2:
+    print("The length comparison variable is True")
+else:
+    print("The length comparison variable is False")
