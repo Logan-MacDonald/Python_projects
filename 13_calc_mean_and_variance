@@ -1,0 +1,29 @@
+# Author: Logan MacDonald
+# Date: 02/14/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description: This program asks for a user to input three dogs weights. The program then calculates the mean,
+# variance, and standard deviation of the weights.
+print("*******************Section A******************************")
+dog1 = int(input("Enter the weight of dog1 : "))
+dog2 = int(input("Enter the weight of dog2 : "))
+dog3 = int(input("Enter the weight of dog3 : "))
+print()
+print("The weight of dog number 1 is : ", dog1)
+print("The weight of dog number 2 is : ", dog2)
+print("The weight of dog number 3 is : ", dog3)
+print("*******************Section B******************************")
+total_weight = dog1 + dog2 + dog3
+mean_weight = total_weight / 3
+print("  The mean weight is : ", mean_weight, "lbs")
+print("  *******************Section C******************************")
+lst = [dog1, dog2, dog3]
+def variance(lst):
+    n = len(lst)
+    mean = sum(lst) / n
+    deviations = [(x - mean) ** 2 for x in lst]
+    variance = sum(deviations) / n
+    return variance
+print("  The variance of the weight is : ", variance(lst), "lbs^2")
+print("  *******************Section D******************************")
+stan_dev = variance(lst) ** (1/2)
+print("  The standard deviation is : ",stan_dev, "lbs")
