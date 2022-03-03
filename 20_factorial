@@ -1,0 +1,24 @@
+# Author: Logan MacDonald
+# Date: 03/09/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program provides the total number of ways a person can select objects.
+def my_factorial(n):
+    fac = 1
+    for i in range(2, n + 1):
+        fac *= i
+    return fac
+def my_combination(n,k):
+    com = my_factorial(n) // (my_factorial(k) * my_factorial(n - k))
+    return com
+def main():
+    n = int(input("n: "))
+    k = int(input("k: "))
+    print("")
+    if(0 <= k and k <= n):
+        com = my_combination(n, k)
+        print(f"you can choose {k} objects from {n} objects in {com} ways")
+    else:
+        print("invalid input")
+if __name__ == '__main__':
+    main()
