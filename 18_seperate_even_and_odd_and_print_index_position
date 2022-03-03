@@ -1,0 +1,18 @@
+# Author: Logan MacDonald
+# Date: 02/28/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. Program has a user input a string and if even, pull all even and print them with index position and vice versa for odd.
+print("**************************************************")
+string_var = input("Enter a string variable: ")
+print("length of the string", string_var, "is", len(string_var))
+string_length = len(string_var)
+print()
+if string_length % 2 == 0:
+    for element in range(string_length):
+        if element % 2 == 0:
+            new_string = ("{}".format("    ".join(string_var[::2])))
+    print(new_string, end=' \n')
+    index = ([element for element in range(0, string_length, 2)])
+    print(*index)
+print("**************************************************")
