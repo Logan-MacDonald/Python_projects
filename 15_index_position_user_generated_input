@@ -1,0 +1,37 @@
+# Author: Logan MacDonald
+# Date: 02/28/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program asks the user to input a length, and then to assign values to indexes of that length. The final
+# step is to get a value from the user to use against the list to compute and give index positions.
+print("*******************Section A******************************")
+x = True
+while(x == True):
+    user_num = int(input("Enter the length: "))
+    if(user_num > 2 and user_num < 10):
+        x = False
+        print(f"The list contains {user_num} entries ")
+    else:
+        print("Invalid list length, try again.\n")
+print()
+print("*******************Section B******************************")
+user_list = list()
+while(len(user_list) < user_num):
+    num = int(input(f"Enter the entry at index {len(user_list)}: "))
+    if (num > 0):
+       user_list.append(num)
+    else:
+        print(f"Invalid entry at index {len(user_list)}\n")
+print("*******************Section C******************************")
+def sum_target():
+    target_num = int(input('Enter the target value: '))
+    status = False
+    for loop1 in range(len(user_list)):
+        for loop2 in range(loop1 + 1, len(user_list)):
+            if(user_list[loop1] + user_list[loop2] == target_num):
+                print(f"The entries {user_list[loop1]}, {user_list[loop2]} found at index {loop1}, {loop2} sum to {target_num}.")
+                status = True
+        break
+    if(status == False):
+        print(f'No valid combination summing to {target_num} was found.')
+sum_target()
