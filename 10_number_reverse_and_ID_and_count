@@ -1,0 +1,18 @@
+# Author: Logan MacDonald
+# Date: 02/14/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description: This program asks for a user input of a 5 digit number, it will return the reverse of the number and
+# identify what the class is. and the users name. outputs a single line with
+# the full name an.
+nums = 0
+print("*******************Section A******************************")
+user_num = str(input("Enter the five digit number: "))
+txt = user_num [::-1]
+user_num = int(user_num)
+print("The reverse of the five digit number is", txt, "and it's type is", type(user_num))
+print("*******************Section B******************************")
+first = input("Enter the First name : ")
+last = input("Enter the Last name : ")
+full_name = first + last
+
+print("The full name of the student is", full_name, ",and length of the variable full_name is", len(full_name))
