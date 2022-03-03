@@ -1,0 +1,42 @@
+# Author: Logan MacDonald
+# Date: 03/29/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program allows the user to enter numbers and add them in binary.
+def toBinary(n):
+    x = ""
+    while n!=0:
+        x = str(n%2) + x
+        n = n//2
+    return x
+
+def binAdd(x, y):
+    maxLen = max(len(x), len(y))
+
+    x = x.zfill(maxLen)
+    y = y.zfill(maxLen)
+
+    z = ''
+    c = 0
+
+    for i in range(maxLen - 1, -1, -1):
+
+        r = c
+        r += 1 if x[i] == '1' else 0
+        r += 1 if y[i] == '1' else 0
+        z = ('1' if r % 2 == 1 else '0') + z
+        c = 0 if r < 2 else 1
+
+    if c != 0: z = '1' + z
+
+    return z.zfill(maxLen)
+
+
+a = [int(i) for i in input('Enter integers to be added : ').split(' ')]
+
+sum = '0'
+for i in range(len(a)):
+    sum = binAdd(sum , toBinary(a[i]))
+
+
+print("The sum is ",sum)
