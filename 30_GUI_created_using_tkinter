@@ -1,0 +1,146 @@
+# Author: Logan MacDonald
+# Date: 04/30/2021
+# E-mail: logan.macdonald@tamu.edu
+# Description:
+# e.g. This program creates a GUI to be used is the sale of Bagels and computes the total price for a bagel with toppings.
+import tkinter
+import tkinter.messagebox
+
+
+class MyGUI:
+    def __init__(self):
+        # Create the main window.
+        self.main_window = tkinter.Tk()
+
+        # Create frames.
+        self.top_frame = tkinter.Frame(self.main_window)
+        self.bottom_frame = tkinter.Frame(self.main_window)
+        self.middle_frame = tkinter.Frame(self.main_window)
+        self.left_frame = tkinter.Frame(self.middle_frame, borderwidth=1, relief="solid")
+        self.right_frame = tkinter.Frame(self.middle_frame, borderwidth=1, relief="solid")
+        #label
+        self.label1 = tkinter.Label(self.top_frame,
+                                    text="Welcome to Sergeant First Class Bagel Hut\nAll prices include tax")
+        self.label1.pack(side="top")
+        self.label2 = tkinter.Label(self.left_frame, text='Pick a Bagel', borderwidth=1, relief='solid')
+        self.label2.pack(side="top")
+        self.label3 = tkinter.Label(self.right_frame, text='Pick Your Toppings ', borderwidth=1, relief='solid')
+        self.label3.pack(side="top")
+
+        #radio buttons
+        self.radio_var = tkinter.IntVar()
+
+        # Set the intVar object to 1.
+        self.radio_var.set(1)
+
+        # Create the Radiobutton widgets in the top_frame.
+        self.rb1 = tkinter.Radiobutton(self.left_frame,
+                                       text='White - $1.29',
+                                       variable=self.radio_var,
+                                       value=1)
+        self.rb2 = tkinter.Radiobutton(self.left_frame,
+                                       text='Wheat - $1.59',
+                                       variable=self.radio_var,
+                                       value=2)
+        self.rb3 = tkinter.Radiobutton(self.left_frame,
+                                       text='Raisin - $1.69',
+                                       variable=self.radio_var,
+                                       value=3)
+        self.rb4 = tkinter.Radiobutton(self.left_frame,
+                                       text='Onion - $1.49',
+                                       variable=self.radio_var,
+                                       value=4)
+
+        # Pack the Radiobuttons.
+        self.rb1.pack()
+        self.rb2.pack()
+        self.rb3.pack()
+        self.rb4.pack()
+
+        #checkbox buttons
+        # Create three IntVar objects to use with
+        # the Checkbuttons.
+        self.cb_var1 = tkinter.IntVar()
+        self.cb_var2 = tkinter.IntVar()
+        self.cb_var3 = tkinter.IntVar()
+        self.cb_var4 = tkinter.IntVar()
+
+        # Set the intVar objects to 0.
+        self.cb_var1.set(0)
+        self.cb_var2.set(0)
+        self.cb_var3.set(0)
+        self.cb_var4.set(0)
+
+        # Create the Checkbutton widgets in the top_frame.
+        self.cb1 = tkinter.Checkbutton(self.right_frame,
+                                       text='Cream Cheese - $0.50',
+                                       variable=self.cb_var1)
+        self.cb2 = tkinter.Checkbutton(self.right_frame,
+                                       text='Butter - $0.20',
+                                       variable=self.cb_var2)
+        self.cb3 = tkinter.Checkbutton(self.right_frame,
+                                       text='Peach jelly - $0.70',
+                                       variable=self.cb_var3)
+        self.cb4 = tkinter.Checkbutton(self.right_frame,
+                                       text='Blueberry jam - $0.70',
+                                       variable=self.cb_var4)
+
+        # Pack the Checkbuttons.
+        self.cb1.pack()
+        self.cb2.pack()
+        self.cb3.pack()
+        self.cb4.pack()
+
+        # Create an OK button and a Quit button.
+        self.ok_button = tkinter.Button(self.bottom_frame,
+                                        text='Calculate',
+                                        command=self.calculate_btn_callback)
+        self.quit_button = tkinter.Button(self.bottom_frame,
+                                          text='Quit',
+                                          command=self.main_window.destroy)
+
+        # Pack the Buttons.
+        self.ok_button.pack(side='left')
+        self.quit_button.pack(side='left')
+
+        # Pack the frames.
+        self.top_frame.pack()
+        self.middle_frame.pack()
+        self.left_frame.pack(side="left")
+        self.right_frame.pack(side="right")
+        self.bottom_frame.pack()
+
+# Start the mainloop.
+        tkinter.mainloop()
+
+    # OK button.
+        # Function for calculate button callback
+    def calculate_btn_callback(self):
+            bagel_cost = self.show_cost()
+            # Display the calculcated cost in an info dialog box rounded to the nearest penny using f-strings
+            tkinter.messagebox.showinfo('Total Cost', f"Total cost of selected items ${bagel_cost:.2f}")
+
+        # Define the  show cost function to calculate the cost
+    def show_cost(self):
+        # Create a dictionary with radio var values for bagel as keys and their cost as values
+        bagel_cost_dict = {1: 1.29, 2: 1.59, 3: 1.69, 4: 1.49}
+        # Get the selected bagel
+        selected_bagel = self.radio_var.get()
+        # Get the cost of bagel from the dictionary defined above
+        bagel_cost = bagel_cost_dict[selected_bagel]
+
+        # Determine which Checkbuttons are selected and
+        # and the corresponding topping cost to the bagel_cost
+        if self.cb_var1.get() == 1:
+            bagel_cost += 0.5
+        if self.cb_var2.get() == 1:
+            bagel_cost += 0.2
+        if self.cb_var3.get() == 1:
+            bagel_cost += 0.7
+        if self.cb_var4.get() == 1:
+            bagel_cost += 0.7
+        return bagel_cost
+
+# Create an instance of the MyGUI class.
+if __name__ == '__main__':
+    my_gui = MyGUI()
